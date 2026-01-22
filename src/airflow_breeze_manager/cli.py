@@ -1036,7 +1036,7 @@ def exec_command(
     for example one started with 'abm shell' or 'abm start-airflow'.
 
     Examples:
-        abm exec my-project
+        abm exec
         abm exec my-project bash
         abm exec my-project python -c "print('hello')"
     """
