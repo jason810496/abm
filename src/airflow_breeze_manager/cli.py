@@ -3,6 +3,8 @@ from __future__ import annotations
 import builtins
 import os
 import shutil
+import subprocess
+import sys
 import webbrowser
 from datetime import datetime
 from pathlib import Path
@@ -1038,9 +1040,6 @@ def exec_command(
         abm exec my-project bash
         abm exec my-project python -c "print('hello')"
     """
-    import subprocess
-    import sys
-
     project, _ = require_project(project_name)
 
     if project.frozen:
@@ -1071,7 +1070,7 @@ def exec_command(
 
     console.print(f"[green]Joining Airflow container for '{project.name}'...[/green]")
 
-    process = subprocess.run(cmd_to_run, check=False, text=True)
+    process = subprocess.run(cmd_to_run, check=False)
     sys.exit(process.returncode)
 
 
